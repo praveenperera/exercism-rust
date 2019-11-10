@@ -16,7 +16,7 @@ impl Clock {
     pub fn to_string(&self) -> String {
         let hours_from_minutes = self.minutes / 60;
 
-        let hours = ((self.hours + 24) + hours_from_minutes) % 24;
+        let hours = (((self.hours + hours_from_minutes) % 24) + 24) % 24;
 
         let minutes = self.minutes % 60;
 

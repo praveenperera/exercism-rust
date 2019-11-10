@@ -1,6 +1,6 @@
 use clock::Clock;
 #[cfg(test)]
-use pretty_assertions::{assert_eq, assert_ne};
+use pretty_assertions::assert_eq;
 
 //
 // Clock Creation
@@ -66,17 +66,15 @@ fn test_negative_hour() {
     assert_eq!(Clock::new(-1, 15).to_string(), "23:15");
 }
 
-// #[test]
-// #[ignore]
-// fn test_negative_hour_roll_over() {
-//     assert_eq!(Clock::new(-25, 00).to_string(), "23:00");
-// }
+#[test]
+fn test_negative_hour_roll_over() {
+    assert_eq!(Clock::new(-25, 00).to_string(), "23:00");
+}
 
-// #[test]
-// #[ignore]
-// fn test_negative_hour_roll_over_continuously() {
-//     assert_eq!(Clock::new(-91, 00).to_string(), "05:00");
-// }
+#[test]
+fn test_negative_hour_roll_over_continuously() {
+    assert_eq!(Clock::new(-91, 00).to_string(), "05:00");
+}
 
 // #[test]
 // #[ignore]
