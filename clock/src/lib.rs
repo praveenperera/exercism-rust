@@ -14,9 +14,13 @@ impl Clock {
     }
 
     pub fn to_string(&self) -> String {
-        let hours = self.hours % 24;
+        let hours_from_minutes = self.minutes / 60;
 
-        format!("{:02}:{:02}", hours, self.minutes)
+        let hours = (self.hours + hours_from_minutes) % 24;
+
+        let minutes = self.minutes % 60;
+
+        format!("{:02}:{:02}", hours, minutes)
     }
 
     pub fn add_minutes(&self, minutes: i32) -> Self {
