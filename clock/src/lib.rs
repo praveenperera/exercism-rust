@@ -14,10 +14,7 @@ impl Clock {
     }
 
     pub fn to_string(&self) -> String {
-        let hours = match self.hours {
-            24 => 0,
-            _ => self.hours,
-        };
+        let hours = self.hours % 24;
 
         format!("{:02}:{:02}", hours, self.minutes)
     }
