@@ -1,4 +1,6 @@
 use clock::Clock;
+#[cfg(test)]
+use pretty_assertions::{assert_eq, assert_ne};
 
 //
 // Clock Creation
@@ -59,11 +61,10 @@ fn test_hours_and_minutes_roll_over_to_exactly_midnight() {
     assert_eq!(Clock::new(72, 8640).to_string(), "00:00");
 }
 
-// #[test]
-// #[ignore]
-// fn test_negative_hour() {
-//     assert_eq!(Clock::new(-1, 15).to_string(), "23:15");
-// }
+#[test]
+fn test_negative_hour() {
+    assert_eq!(Clock::new(-1, 15).to_string(), "23:15");
+}
 
 // #[test]
 // #[ignore]
