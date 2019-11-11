@@ -20,12 +20,18 @@ impl Clock {
 
 impl fmt::Display for Clock {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        let hours_from_minutes = (self.minutes / 60);
+        let total_minutes = (self.hours * 60) + self.minutes;
 
-        let hours = (((self.hours + hours_from_minutes) % 24) + 24) % 24;
+        let hours = (total_minutes / 60) % 24;
+        let minutes = total_minutes % 60;
 
-        let minutes = ((self.minutes + 60) % 60);
+        // check if minutes are negative and rewind an hour
+        let hours = if minutes < 0 { hours - 1 } else { hours };
 
-        write!(f, "{:02}:{:02}", self.hours, self.minutes)
+        // deal with negative hours and minutes
+        let minutes = (minutes + 60) % 60;
+        let hours = (hours + 24) % 24;
+
+        write!(f, "{:02}:{:02}", hours, minutes)
     }
 }
