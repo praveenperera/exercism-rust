@@ -14,7 +14,10 @@ impl Clock {
     }
 
     pub fn add_minutes(&self, minutes: i32) -> Self {
-        unimplemented!("Add {} minutes to existing Clock time", minutes);
+        Clock {
+            hours: self.hours,
+            minutes: self.minutes + minutes,
+        }
     }
 }
 
