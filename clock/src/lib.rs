@@ -1,5 +1,6 @@
 use std::fmt;
 
+#[derive(Debug)]
 pub struct Clock {
     hours: i32,
     minutes: i32,
@@ -7,10 +8,7 @@ pub struct Clock {
 
 impl Clock {
     pub fn new(hours: i32, minutes: i32) -> Self {
-        Clock {
-            hours: hours,
-            minutes: minutes,
-        }
+        Clock { hours, minutes }
     }
 
     pub fn add_minutes(&self, minutes: i32) -> Self {
@@ -18,6 +16,12 @@ impl Clock {
             hours: self.hours,
             minutes: self.minutes + minutes,
         }
+    }
+}
+
+impl PartialEq for Clock {
+    fn eq(&self, other: &Self) -> bool {
+        self.to_string() == other.to_string()
     }
 }
 
