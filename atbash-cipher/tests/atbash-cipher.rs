@@ -20,11 +20,10 @@ fn test_encode_spaces() {
     assert_eq!(cipher::encode("O M G"), "lnt");
 }
 
-// #[test]
-// #[ignore]
-// fn test_encode_mindblowingly() {
-//     assert_eq!(cipher::encode("mindblowingly"), "nrmwy oldrm tob");
-// }
+#[test]
+fn test_encode_mindblowingly() {
+    assert_eq!(cipher::encode("mindblowingly"), "nrmwy oldrm tob");
+}
 
 // #[test]
 // #[ignore]
