@@ -21,7 +21,7 @@ pub fn encode(plain: &str) -> String {
         .map(|index| *cipher.get(&index).unwrap())
         .collect();
 
-    result_vec.iter().cloned().collect::<String>()
+    result_vec.iter().cloned().collect()
 }
 
 fn cipher() -> HashMap<i32, char> {
