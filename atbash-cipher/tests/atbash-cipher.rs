@@ -5,23 +5,20 @@ fn test_encode_yes() {
     assert_eq!(cipher::encode("yes"), "bvh");
 }
 
-// #[test]
-// #[ignore]
-// fn test_encode_no() {
-//     assert_eq!(cipher::encode("no"), "ml");
-// }
+#[test]
+fn test_encode_no() {
+    assert_eq!(cipher::encode("no"), "ml");
+}
 
-// #[test]
-// #[ignore]
-// fn test_encode_omg() {
-//     assert_eq!(cipher::encode("OMG"), "lnt");
-// }
+#[test]
+fn test_encode_omg() {
+    assert_eq!(cipher::encode("OMG"), "lnt");
+}
 
-// #[test]
-// #[ignore]
-// fn test_encode_spaces() {
-//     assert_eq!(cipher::encode("O M G"), "lnt");
-// }
+#[test]
+fn test_encode_spaces() {
+    assert_eq!(cipher::encode("O M G"), "lnt");
+}
 
 // #[test]
 // #[ignore]

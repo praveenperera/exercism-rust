@@ -3,7 +3,11 @@ use std::collections::HashMap;
 ///"Encipher" with the Atbash cipher.
 pub fn encode(plain: &str) -> String {
     let cipher = cipher();
-    let char_vec: Vec<char> = plain.chars().collect();
+    let char_vec: Vec<char> = plain
+        .to_lowercase()
+        .chars()
+        .filter(|c| !c.is_whitespace())
+        .collect();
 
     let alphabet: HashMap<char, i32> = alphabet();
 
